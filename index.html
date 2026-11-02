@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#3a101d">
+<meta name="description" content="A beautiful cinematic Indian wedding invitation">
+<title>Aarav & Ananya | Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#3b101f;--wine2:#641b2d;--gold:#e7c77e;--cream:#fff5df;--rose:#d99a9c}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#210912;color:var(--cream);font-family:'Cormorant Garamond',serif}
+body{display:grid;place-items:center}
+.invite{position:relative;width:min(100vw,430px);height:min(100dvh,900px);min-height:560px;overflow:hidden;background:var(--wine);isolation:isolate;box-shadow:0 0 70px #0009}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:42px 27px 76px;opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity 1s ease,transform 1.4s ease,visibility 1s;overflow:hidden}
+.scene.active{opacity:1;visibility:visible;transform:scale(1)}
+.scene:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#210912aa,#32101dbb 45%,#210912e8)}
+.scene:after{content:"";position:absolute;inset:13px;border:1px solid #e7c77e88;z-index:5;pointer-events:none}
+.scene>*{position:relative;z-index:2}
+.bg{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3!important;filter:saturate(.82)}
+.ornament{position:absolute;left:50%;top:34px;transform:translateX(-50%);font-size:25px;color:var(--gold);letter-spacing:9px;white-space:nowrap}
+.eyebrow{font-family:'Hind',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+h1,h2,p{margin-top:0}h1{font-size:clamp(42px,12vw,61px);line-height:.98;font-weight:500;color:var(--cream);text-shadow:0 4px 22px #18040a}
+h2{font-size:34px;line-height:1.05;font-weight:500;color:var(--gold)}
+.script{font-family:'Great Vibes',cursive;color:var(--gold);font-size:clamp(44px,12vw,62px);line-height:1.12}
+.copy{font-family:'Hind',sans-serif;font-size:13px;line-height:1.9;color:#f8e8d2;max-width:310px}
+.gold-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:15px auto}
+.lotus{font-size:31px;color:var(--gold);margin:10px 0}
+.corner{position:absolute;width:125px;opacity:.72;z-index:1!important;filter:drop-shadow(0 0 8px #e7c77e55)}
+.tl{top:-7px;left:-8px}.tr{top:-7px;right:-8px;transform:scaleX(-1)}.bl{bottom:-7px;left:-8px;transform:scaleY(-1)}.br{bottom:-7px;right:-8px;transform:scale(-1)}
+.petal{position:absolute;top:-35px;width:12px;height:18px;border-radius:100% 0 100% 0;background:linear-gradient(135deg,#f8d7a0,#a83b4b);opacity:.8;animation:fall linear infinite;z-index:1}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(650deg);opacity:.05}}
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe9a8;box-shadow:0 0 10px 3px #e8bd68;animation:twinkle 2.5s infinite alternate}
+@keyframes twinkle{from{opacity:.15;transform:scale(.6)}to{opacity:1;transform:scale(1.5)}}
+.opening-title{animation:rise 1.8s both}.open-env{width:220px;height:145px;position:relative;margin:30px auto 15px;filter:drop-shadow(0 15px 22px #10030a99);perspective:700px}
+.envelope{position:absolute;inset:0;background:linear-gradient(145deg,#f0d9a8,#b98b4d);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);border-radius:5px}
+.envelope:before,.envelope:after{content:"";position:absolute;inset:0;background:#d6b477;clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%)}
+.flap{position:absolute;top:0;left:0;width:100%;height:72%;background:linear-gradient(135deg,#f5e2b9,#bd9454);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1.4s .4s;z-index:4}
+.seal{position:absolute;z-index:5;left:50%;top:48%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#e6b8a2,#8b2939 70%);color:#f8dfac;border:2px solid #e6c47d;font-size:20px;transition:opacity .4s}
+.active .flap{transform:rotateX(180deg)}.active .seal{opacity:0}
+.letter{position:absolute;left:12%;right:12%;bottom:8px;height:110px;background:#fff4df;color:#742b36;display:grid;place-items:center;font-size:26px;transition:transform 1.2s .8s;z-index:2}
+.active .letter{transform:translateY(-72px)}
+.couple{width:230px;height:290px;object-fit:cover;border:5px solid #d9b66d;outline:1px solid #f8e8c3;outline-offset:5px;border-radius:48% 48% 8px 8px;box-shadow:0 15px 35px #13040a99;animation:photoIn 2s both}
+@keyframes photoIn{from{opacity:0;transform:scale(.78) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.names{font-size:clamp(43px,12vw,60px);animation:rise 1.6s both}
+@keyframes rise{from{opacity:0;transform:translateY(28px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.date-card{border-top:1px solid #d9b66d;border-bottom:1px solid #d9b66d;padding:18px 24px;margin:12px 0}
+.date{font-size:34px;color:var(--gold);letter-spacing:2px}.venue{font-family:'Hind',sans-serif;font-size:12px;line-height:1.9}
+.events{width:100%;max-width:315px;display:grid;gap:10px;margin-top:8px}
+.event{display:grid;grid-template-columns:55px 1fr;align-items:center;text-align:left;padding:9px 13px;border:1px solid #d8b66c66;background:#35101b99;backdrop-filter:blur(5px);animation:rise .8s both}
+.event:nth-child(2){animation-delay:.2s}.event:nth-child(3){animation-delay:.4s}.event:nth-child(4){animation-delay:.6s}
+.event-icon{font-size:25px;text-align:center}.event strong{display:block;font-size:19px;color:var(--gold);font-weight:600}.event small{font-family:'Hind',sans-serif;color:#f4dfc7;font-size:10px;letter-spacing:.5px}
+.final-card{padding:28px 18px;border:1px solid #d9b66d;background:#3a101dbb;box-shadow:0 15px 40px #10030a66}
+.controls{position:absolute;bottom:0;left:0;right:0;height:61px;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 25px;background:linear-gradient(0deg,#1a0710dd,transparent)}
+.control-btn{border:1px solid #e7c77e88;color:var(--gold);background:#32101dcc;border-radius:30px;padding:8px 14px;font-family:'Hind',sans-serif;font-size:11px;cursor:pointer}
+.dots{display:flex;gap:6px}.dot{width:5px;height:5px;border-radius:50%;background:#9e7770}.dot.on{background:var(--gold);box-shadow:0 0 7px var(--gold)}
+.music-note{font-size:12px;color:#f5dca5;margin-top:9px}
+@media(min-width:600px){.invite{border-radius:18px;height:min(92dvh,850px)}}
+@media(max-height:650px){.scene{padding-top:27px;padding-bottom:65px}.couple{height:220px;width:180px}.script{font-size:43px}.events{gap:6px}.event{padding:6px 10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="invite" id="invite" aria-label="Aarav and Ananya wedding invitation">
+  <section class="scene active" data-duration="6500">
+    <img class="bg" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="">
+    <div class="ornament">✦ ❀ ✦</div>
+    <p class="eyebrow opening-title">With the blessings of our families</p>
+    <div class="lotus">❀</div>
+    <h1 class="script opening-title">A Celebration<br>of Love</h1>
+    <div class="gold-line"></div>
+    <p class="copy opening-title">Two hearts, two families, one beautiful beginning.<br>Join us as we celebrate a forever kind of love.</p>
+    <p class="music-note">♪ A little music, a lot of love ♪</p>
+  </section>
+
+  <section class="scene" data-duration="5200">
+    <div class="ornament">✦ ❀ ✦</div>
+    <p class="eyebrow">A royal invitation</p>
+    <div class="open-env"><div class="letter">You're Invited</div><div class="envelope"></div><div class="flap"></div><div class="seal">❀</div></div>
+    <h2 class="script">Open with love</h2>
+    <p class="copy">A special invitation sealed with blessings<br>and wrapped in happiness.</p>
+  </section>
+
+  <section class="scene" data-duration="6500">
+    <img class="bg" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="">
+    <div class="ornament">✦ ❀ ✦</div>
+    <p class="eyebrow">Together with our families</p>
+    <div class="lotus">❧</div>
+    <h1 class="names script">Aarav</h1>
+    <p class="script" style="font-size:42px;margin:2px 0">and</p>
+    <h1 class="names script">Ananya</h1>
+    <div class="gold-line"></div>
+    <p class="copy">Two souls, one journey, endless memories.<br>We invite you to bless our new beginning.</p>
+  </section>
+
+  <section class="scene" data-duration="6500">
+    <img class="bg" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=85" alt="">
+    <p class="eyebrow">The beautiful couple</p>
+    <img class="couple" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=85" alt="Demo wedding couple photograph">
+    <h2 class="script" style="margin:22px 0 4px">Aarav & Ananya</h2>
+    <p class="copy">Made for each other, blessed by everyone.</p>
+  </section>
+
+  <section class="scene" data-duration="7000">
+    <img class="bg" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85" alt="">
+    <div class="ornament">✦ ❀ ✦</div>
+    <p class="eyebrow">Save the date</p>
+    <div class="lotus">❀</div>
+    <h2 class="script">The Wedding</h2>
+    <div class="date-card">
+      <div class="eyebrow" style="margin:0">Saturday</div>
+      <div class="date">18 • APRIL • 2027</div>
+      <div class="eyebrow" style="margin:5px 0 0">At 7:00 in the evening</div>
+    </div>
+    <div class="venue"><strong style="color:var(--gold);font-size:17px">The Grand Palace</strong><br>Jaipur, Rajasthan<br>Celebration followed by dinner</div>
+  </section>
+
+  <section class="scene" data-duration="8500">
+    <img class="bg" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85" alt="">
+    <p class="eyebrow">The celebrations</p>
+    <h2 class="script">Wedding Festivities</h2>
+    <div class="events">
+      <div class="event"><div class="event-icon">🌼</div><div><strong>Haldi Ceremony</strong><small>16 April 2027 · 10:00 AM · Garden Courtyard</small></div></div>
+      <div class="event"><div class="event-icon">🌿</div><div><strong>Mehndi Ceremony</strong><small>16 April 2027 · 4:00 PM · The Royal Lawn</small></div></div>
+      <div class="event"><div class="event-icon">🎶</div><div><strong>Sangeet Night</strong><small>17 April 2027 · 7:00 PM · Celebration Hall</small></div></div>
+      <div class="event"><div class="event-icon">💍</div><div><strong>Wedding & Pheras</strong><small>18 April 2027 · 7:00 PM · Palace Courtyard</small></div></div>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="9000">
+    <img class="bg" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="">
+    <div class="final-card">
+      <div class="lotus">❀</div>
+      <p class="eyebrow">With love and blessings</p>
+      <h2 class="script" style="font-size:48px">Your Presence<br>is Our Present</h2>
+      <div class="gold-line"></div>
+      <p class="copy">We, the Sharma & Mehta families,<br>cordially invite you to celebrate the wedding<br>of our beloved children.</p>
+      <h2 class="script" style="font-size:39px;margin:14px 0">Aarav & Ananya</h2>
+      <p class="copy">Your love, blessings and good wishes<br>will make our celebration truly special.</p>
+      <p class="eyebrow" style="margin:18px 0 0">With warm regards · Sharma & Mehta Family</p>
+    </div>
+  </section>
+
+  <div class="controls">
+    <button class="control-btn" id="musicBtn" type="button">♫ Music: Off</button>
+    <div class="dots" id="dots" aria-label="Invitation scenes"></div>
+    <button class="control-btn" id="nextBtn" type="button">Next ›</button>
+  </div>
+</main>
+<script>
+(() => {
+  const scenes = [...document.querySelectorAll('.scene')];
+  const dots = document.getElementById('dots');
+  const nextBtn = document.getElementById('nextBtn');
+  const musicBtn = document.getElementById('musicBtn');
+  let current = 0, timer = null, audioCtx = null, musicOn = false, notesTimer = null;
+  scenes.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' on' : '');
+    dots.appendChild(dot);
+  });
+  const dotEls = [...dots.children];
+
+  function showScene(index) {
+    current = (index + scenes.length) % scenes.length;
+    scenes.forEach((scene, i) => scene.classList.toggle('active', i === current));
+    dotEls.forEach((dot, i) => dot.classList.toggle('on', i === current));
+    nextBtn.textContent = current === scenes.length - 1 ? 'Replay ↻' : 'Next ›';
+    clearTimeout(timer);
+    timer = setTimeout(() => showScene(current + 1), Number(scenes[current].dataset.duration || 6000));
+  }
+  nextBtn.addEventListener('click', () => showScene(current === scenes.length - 1 ? 0 : current + 1));
+
+  // A gentle, original tanpura-inspired ambient bed made with Web Audio.
+  // Browsers require a user gesture before audio can start.
+  function startMusic() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    audioCtx = audioCtx || new AudioContext();
+    audioCtx.resume();
+    const master = audioCtx.createGain();
+    master.gain.value = 0.075;
+    master.connect(audioCtx.destination);
+    const frequencies = [110, 164.81, 220, 329.63];
+    frequencies.forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+      osc.type = i === 0 ? 'triangle' : 'sine';
+      osc.frequency.value = freq;
+      filter.type = 'lowpass';
+      filter.frequency.value = 700;
+      gain.gain.value = i === 0 ? 0.42 : 0.12;
+      osc.connect(filter); filter.connect(gain); gain.connect(master);
+      osc.start();
+    });
+    let pulse = 0;
+    notesTimer = setInterval(() => {
+      if (!audioCtx || audioCtx.state !== 'running') return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = [440, 493.88, 587.33, 659.25][pulse++ % 4];
+      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.045, audioCtx.currentTime + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.2);
+      osc.connect(gain); gain.connect(master); osc.start(); osc.stop(audioCtx.currentTime + 2.3);
+    }, 2600);
+  }
+  musicBtn.addEventListener('click', async () => {
+    if (!musicOn) {
+      startMusic();
+      if (audioCtx) { await audioCtx.resume(); musicOn = true; musicBtn.textContent = '♫ Music: On'; }
+    } else {
+      if (audioCtx) await audioCtx.suspend();
+      musicOn = false; musicBtn.textContent = '♫ Music: Off';
+    }
+  });
+
+  // Decorative petals and golden particles.
+  const root = document.getElementById('invite');
+  for (let i = 0; i < 22; i++) {
+    const petal = document.createElement('i');
+    petal.className = 'petal';
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDuration = (9 + Math.random() * 12) + 's';
+    petal.style.animationDelay = (-Math.random() * 18) + 's';
+    petal.style.setProperty('--drift', (Math.random() * 130 - 65) + 'px');
+    root.appendChild(petal);
+  }
+  for (let i = 0; i < 28; i++) {
+    const spark = document.createElement('i');
+    spark.className = 'spark';
+    spark.style.left = Math.random() * 100 + '%';
+    spark.style.top = Math.random() * 100 + '%';
+    spark.style.animationDelay = Math.random() * 3 + 's';
+    root.appendChild(spark);
+  }
+  showScene(0);
+})();
+</script>
+</body>
+</html>
